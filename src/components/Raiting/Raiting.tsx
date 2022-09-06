@@ -77,7 +77,7 @@ type StarPropsType = {
 function Star(props: StarPropsType) {
     // debugger
     console.log('Star randering')
-    if (props.selected === true) {
+    if (props.selected) {
         return <span><b>star </b></span>
     }
     return <span>star </span>
