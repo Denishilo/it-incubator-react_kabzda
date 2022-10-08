@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 
 export function UnControlledRaiting() {
-    console.log('Raiting rendering')
     const [value, setValue] = useState(0)
 
     const onClickHandler = (num: number) => {
@@ -27,14 +26,14 @@ export function UnControlledRaiting() {
 type StarPropsType = {
     selected: boolean
     callback: () => void
-
 }
 
 function Star(props: StarPropsType) {
+    const {selected, callback} = props
+
     const onClickHandler = () => {
-        props.callback()
+        callback()
     }
 
-    return props.selected ? <span onClick={onClickHandler}><b>star</b></span> :
-        <span onClick={onClickHandler}>star</span>
+    return <span onClick={onClickHandler}> {selected ? <b>star </b> : 'star '}  </span>
 }

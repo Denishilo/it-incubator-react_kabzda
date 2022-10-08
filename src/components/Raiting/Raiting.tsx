@@ -1,32 +1,42 @@
 import React from "react";
 
-type RaitingPropsType = {
-    value: 0 | 1 | 2 | 3 | 4 | 5
+export type RaitingValue = 0 | 1 | 2 | 3 | 4 | 5
+export type RaitingPropsType = {
+    value: RaitingValue
+    onChangeValue: (value: RaitingValue) => void
 }
 
 export function Raiting(props: RaitingPropsType) {
-    console.log('Raiting rendering')
+    const {value, onChangeValue} = props
+    const onChangeValueHandler = (value: RaitingValue) => {
+        onChangeValue(value)
+    }
     return (
         <div>
-            <Star selected={props.value > 0}/>
-            <Star selected={props.value > 1}/>
-            <Star selected={props.value > 2}/>
-            <Star selected={props.value > 3}/>
-            <Star selected={props.value > 4}/>
+            <Star selected={value > 0} value={1} callback={onChangeValueHandler}/>
+            <Star selected={value > 1} value={2} callback={onChangeValueHandler}/>
+            <Star selected={value > 2} value={3} callback={onChangeValueHandler}/>
+            <Star selected={value > 3} value={4} callback={onChangeValueHandler}/>
+            <Star selected={value > 4} value={5} callback={onChangeValueHandler}/>
         </div>
     )
 }
 
 type StarPropsType = {
-    selected: boolean,
+    selected: boolean
+    value: RaitingValue
+    callback: (value: RaitingValue) => void
 }
 
 function Star(props: StarPropsType) {
-    // debugger
-    console.log('Star randering')
-    if (props.selected) {
-        return <span><b>star </b></span>
+
+    const {selected, callback, value} = props
+
+    const onClickHandler = () => {
+        callback(value)
     }
-    return <span>star </span>
+    return (
+        <span onClick={onClickHandler}>{selected ? <b>star </b> : 'star'} </span>
+    )
 
 }
