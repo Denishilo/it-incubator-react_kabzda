@@ -1,23 +1,21 @@
 import styles from './OnOff.module.css'
-import {useState} from "react";
 
-export const OnOff = () => {
+type OnOffPropsType = {
+    value: boolean
+    changeOnOff: () => void
+}
 
-    const [value, setValue] = useState(true)
-
+export const OnOff = (props: OnOffPropsType) => {
+    const {value, changeOnOff} = props
     return (
         <div>
-            <button onClick={() => {
-                setValue(true)
-            }} className={value ? styles.active : styles.without}>ON
+            <button onClick={changeOnOff}
+                    className={value ? styles.active : styles.without}>ON
             </button>
-            <button onClick={() => {
-                setValue(false)
-            }} className={value ? styles.without : styles.noactive}>OFF
+            <button onClick={changeOnOff}
+                    className={value ? styles.without : styles.noactive}>OFF
             </button>
             <button className={value ? styles.active : styles.noactive}>Indicate</button>
-
         </div>
     )
-
 }
