@@ -1,0 +1,30 @@
+.selectWrapper{
+    margin-top: 50px;
+}
+
+.headerValue{
+    max-width: 120px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: Georgia, sans-serif;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.items {
+    max-width: 120px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: Georgia, sans-serif;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.item {
+    cursor: pointer;
+}
+.itemSelected {
+    background: cadetblue;
+    color: white;
+}
