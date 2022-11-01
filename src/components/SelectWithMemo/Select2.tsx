@@ -1,16 +1,17 @@
 import React, {useState, KeyboardEvent} from "react";
-import {selectType} from "../../App";
-import styles from './Select.module.css'
+
+import styles from './SelectMemo.module.css'
+import {SelectMemoType} from "../../App";
 
 
-type SelectPropsType = {
-    id?:number
+type SelectMemoPropsType = {
     selectValue: string
     onChangeSelect: (title: string) => void
-    items: Array<selectType>
+    items:Array<SelectMemoType>
 }
 
-export const Select = (props: SelectPropsType) => {
+export const Select2 = (props: SelectMemoPropsType) => {
+    console.log('Select2')
 
     const {selectValue, onChangeSelect, items} = props
 
@@ -36,16 +37,16 @@ export const Select = (props: SelectPropsType) => {
 
         for (let i = 0; i < items.length; i++) {
             if (e.key === 'ArrowDown' && items[i + 1]) {
-                if (items[i].title === hoveredItem) {
-                    onChangeSelect(items[i + 1].title)
-                    setHoveredElementValue(items[i + 1].title)
+                if (items[i].city === hoveredItem) {
+                    onChangeSelect(items[i + 1].city)
+                    setHoveredElementValue(items[i + 1].city)
                     break
                 }
             }
             if (e.key === 'ArrowUp' && items[i - 1]) {
-                if (items[i].title === hoveredItem) {
-                    onChangeSelect(items[i - 1].title)
-                    setHoveredElementValue(items[i - 1].title)
+                if (items[i].city === hoveredItem) {
+                    onChangeSelect(items[i - 1].city)
+                    setHoveredElementValue(items[i - 1].city)
                     break
                 }
             }
@@ -63,9 +64,9 @@ export const Select = (props: SelectPropsType) => {
             <div className={styles.headerValue}
                  onClick={onClickCollapsedHandler}>{selectValue}</div>
             {isColapsed ? <div className={styles.items}>
-                    {items.map(item => <div onMouseEnter={() => onMouseItemsHandler(item.title)}
-                                            className={styles.item + ' ' + (hoveredElementValue === item.title ? styles.itemSelected : '')}
-                                            onClick={() => onClickItemHandler(item.title)}>{item.title}</div>)}</div>
+                    {items.map(item => <div key={item.id} onMouseEnter={() => onMouseItemsHandler(item.city)}
+                                            className={styles.item + ' ' + (hoveredElementValue === item.city ? styles.itemSelected : '')}
+                                            onClick={() => onClickItemHandler(item.city)}>{item.city}</div>)}</div>
                 : ''}
         </div>
 
