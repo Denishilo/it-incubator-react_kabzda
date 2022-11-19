@@ -17,7 +17,7 @@ export const SelectWithMemo =()=>{
 
     const [selectMemoValueBelarus, setSelectMemoValueBelarus] = useState<string>(selectMemoBelarus[0].city)
     //const [selectMemoValueRussia, setSelectMemoValueUkraine] = useState<string>(selectMemoUkraine[0].city)
-    
+
     console.log('SelectWithMemo')
 
     let[counter,setCounter] = useState<number>(0)

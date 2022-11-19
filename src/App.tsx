@@ -9,6 +9,7 @@ import {PageTitle} from "./components/PageTitle/PageTitle";
 import {OnOff} from "./components/OnOff/OnOff";
 import {Select} from "./components/Select/Select";
 import {UseMemo} from "./components/UseMemo";
+import {UseEffect} from "./components/UseEffect/UseEffect";
 
 
 
@@ -69,6 +70,7 @@ function App() {
             <UncontrolledOnOff/>
             <Select selectValue={selectValue} onChangeSelect={onChangeSelectHandler} items={items}/>
             <UseMemo/>
+            <UseEffect/>
         </div>
     );
 }
