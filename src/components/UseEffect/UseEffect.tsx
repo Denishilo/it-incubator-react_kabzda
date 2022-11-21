@@ -15,10 +15,13 @@ export const UseEffect = () => {
     const [clock, setClock] = useState<string>(getDate())
 
     useEffect(() => {
-        console.log('effect')
-        setInterval(() => {
+        let intervalId = setInterval(() => {
             setClock(getDate())
         }, 1000)
+
+        return ()=>{
+            clearInterval(intervalId)
+        }
     },[])
 
 
